@@ -3,4 +3,5 @@
     <dimen name="btnTextSize">40sp</dimen>
 
     <dimen name="btnSize">80dp</dimen>
+    <dimen name="btnMarginSize">16dp</dimen>
 </resources>
