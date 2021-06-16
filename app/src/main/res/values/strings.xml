@@ -12,4 +12,9 @@
     <string name="Zero">0</string>
     <string name="Dot">.</string>
     <string name="Square">^2</string>
+    <string name="Plus">+</string>
+    <string name="Minus">-</string>
+    <string name="Multiply">*</string>
+    <string name="Devide">/</string>
+    <string name="Equal">=</string>
 </resources>

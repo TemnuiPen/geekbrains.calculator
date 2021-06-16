@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    tools:context=".MainActivity"
+    android:background="@drawable/picture">
     <Button
         android:id="@+id/btnOne"
         android:layout_width="@dimen/btnSize"
@@ -14,14 +14,12 @@
         android:textSize="@dimen/btnTextSize"
         tools:ignore="MissingConstraints"
         android:layout_marginStart="@dimen/btnMarginSize"
-        android:layout_marginTop="@dimen/btnMarginSize"
         android:layout_marginBottom="@dimen/btnMarginSmallSize"
         app:layout_constraintEnd_toStartOf="@id/btnTwo"
         app:layout_constraintBottom_toTopOf="@id/btnFour"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintHorizontal_chainStyle="packed">
+        app:layout_constraintVertical_chainStyle="packed">
     </Button>
 
     <Button
@@ -76,7 +74,6 @@
         android:textSize="@dimen/btnTextSize"
         tools:ignore="MissingConstraints"
         android:layout_marginStart="@dimen/btnMarginSize"
-        android:layout_marginTop="@dimen/btnMarginSize"
         android:layout_marginBottom="@dimen/btnMarginSmallSize"
         app:layout_constraintBottom_toTopOf="@id/btnFive"
         app:layout_constraintTop_toTopOf="parent"
@@ -128,7 +125,7 @@
         android:layout_marginTop="@dimen/btnMarginSmallSize"
         app:layout_constraintTop_toBottomOf="@id/btnEight"
         app:layout_constraintStart_toEndOf="@id/btnZero"
-        app:layout_constraintEnd_toStartOf="@id/btnSquare"
+        app:layout_constraintEnd_toStartOf="@id/btnEquals"
         app:layout_constraintBottom_toBottomOf="parent">
     </Button>
 
@@ -141,7 +138,6 @@
         tools:ignore="MissingConstraints"
         android:layout_marginEnd="@dimen/btnMarginSize"
         android:layout_marginStart="@dimen/btnMarginSize"
-        android:layout_marginTop="@dimen/btnMarginSize"
         android:layout_marginBottom="@dimen/btnMarginSmallSize"
         app:layout_constraintBottom_toTopOf="@id/btnSix"
         app:layout_constraintTop_toTopOf="parent"
@@ -175,14 +171,14 @@
         android:layout_marginStart="@dimen/btnMarginSize"
         app:layout_constraintTop_toBottomOf="@id/btnSix"
         app:layout_constraintStart_toEndOf="@+id/btnEight"
-        app:layout_constraintBottom_toTopOf="@id/btnSquare">
+        app:layout_constraintBottom_toTopOf="@id/btnEquals">
     </Button>
 
     <Button
-        android:id="@+id/btnSquare"
+        android:id="@+id/btnEquals"
         android:layout_width="@dimen/btnSize"
         android:layout_height="@dimen/btnSize"
-        android:text="@string/Square"
+        android:text="@string/Equal"
         android:textSize="@dimen/btnTextSize"
         tools:ignore="MissingConstraints"
         android:layout_marginTop="@dimen/btnMarginSmallSize"
@@ -192,5 +188,76 @@
         app:layout_constraintStart_toEndOf="@+id/btnDot"
         app:layout_constraintBottom_toBottomOf="parent">
     </Button>
+
+    <Button
+        android:id="@+id/btnPlus"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:layout_marginTop="@dimen/btnMarginSmallSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginEnd="@dimen/btnMarginLargeSize"
+        android:layout_marginBottom="@dimen/btnMarginSmallSize"
+        android:text="@string/Plus"
+        android:textSize="@dimen/btnTextSize"
+        app:layout_constraintBottom_toTopOf="@id/btnMinus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnThree"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="MissingConstraints">
+    </Button>
+
+    <Button
+        android:id="@+id/btnMinus"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Minus"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginLargeSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginBottom="@dimen/btnMarginSmallSize"
+        app:layout_constraintBottom_toTopOf="@id/btnMultiply"
+        app:layout_constraintTop_toBottomOf="@+id/btnPlus"
+        app:layout_constraintStart_toEndOf="@+id/btnSix"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+    </Button>
+
+    <Button
+        android:id="@+id/btnMultiply"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Multiply"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginLargeSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+
+        android:layout_marginBottom="@dimen/btnMarginSmallSize"
+        app:layout_constraintBottom_toTopOf="@id/btnDevide"
+        app:layout_constraintTop_toBottomOf="@id/btnMinus"
+        app:layout_constraintStart_toEndOf="@+id/btnNine"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+    </Button>
+
+    <Button
+        android:id="@+id/btnDevide"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Devide"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginLargeSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginBottom="@dimen/btnMarginSmallSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMultiply"
+        app:layout_constraintStart_toEndOf="@+id/btnEquals"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+    </Button>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

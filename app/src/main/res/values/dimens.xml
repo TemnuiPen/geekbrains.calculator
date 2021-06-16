@@ -3,6 +3,7 @@
     <dimen name="btnTextSize">40sp</dimen>
 
     <dimen name="btnSize">80dp</dimen>
+    <dimen name="btnMarginLargeSize">24dp</dimen>
     <dimen name="btnMarginSize">16dp</dimen>
     <dimen name="btnMarginSmallSize">8dp</dimen>
     <dimen name="btnZeroSize">192dp</dimen>
