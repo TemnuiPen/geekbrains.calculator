@@ -17,10 +17,12 @@
         android:layout_marginStart="@dimen/btnMarginSize"
         android:layout_marginTop="@dimen/btnMarginSize"
         android:layout_marginBottom="@dimen/btnMarginSize"
+        app:layout_constraintEnd_toStartOf="@id/btnTwo"
         app:layout_constraintBottom_toTopOf="@id/btnFour"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintHorizontal_chainStyle="packed">
     </Button>
 
     <Button
@@ -33,6 +35,7 @@
         android:layout_marginEnd="@dimen/btnMarginSize"
         android:layout_marginStart="@dimen/btnMarginSize"
         android:layout_marginBottom="@dimen/btnMarginSize"
+        app:layout_constraintEnd_toStartOf="@id/btnFive"
         app:layout_constraintBottom_toTopOf="@id/btnSeven"
         app:layout_constraintTop_toBottomOf="@+id/btnOne"
         app:layout_constraintStart_toStartOf="parent">
@@ -47,8 +50,151 @@
         tools:ignore="MissingConstraints"
         android:layout_marginEnd="@dimen/btnMarginSize"
         android:layout_marginStart="@dimen/btnMarginSize"
+        app:layout_constraintEnd_toStartOf="@id/btnEight"
         app:layout_constraintTop_toBottomOf="@id/btnFour"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnZero">
+    </Button>
+
+    <Button
+        android:id="@+id/btnZero"
+        android:layout_height="@dimen/btnSize"
+        android:layout_width = "@dimen/btnSize"
+        android:text="@string/Zero"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginTop="@dimen/btnMarginSize"
+        app:layout_constraintTop_toBottomOf="@id/btnSeven"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnDot"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </Button>
+
+    <Button
+        android:id="@+id/btnTwo"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Two"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginTop="@dimen/btnMarginSize"
+        android:layout_marginBottom="@dimen/btnMarginSize"
+        app:layout_constraintBottom_toTopOf="@id/btnFive"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnOne"
+        app:layout_constraintEnd_toStartOf="@+id/btnThree"
+        app:layout_constraintVertical_chainStyle="packed">
+    </Button>
+
+    <Button
+        android:id="@+id/btnFive"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Five"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginBottom="@dimen/btnMarginSize"
+        app:layout_constraintEnd_toStartOf="@+id/btnSix"
+        app:layout_constraintBottom_toTopOf="@id/btnEight"
+        app:layout_constraintTop_toBottomOf="@+id/btnTwo"
+        app:layout_constraintStart_toEndOf="@+id/btnFour">
+    </Button>
+
+    <Button
+        android:id="@+id/btnEight"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Eight"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        app:layout_constraintTop_toBottomOf="@id/btnFive"
+        app:layout_constraintStart_toEndOf="@+id/btnSeven"
+        app:layout_constraintEnd_toStartOf="@+id/btnNine"
+        app:layout_constraintBottom_toTopOf="@id/btnDot">
+    </Button>
+
+    <Button
+        android:id="@+id/btnDot"
+        android:layout_height="@dimen/btnSize"
+        android:layout_width = "@dimen/btnSize"
+        android:text="@string/Dot"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginTop="@dimen/btnMarginSize"
+        app:layout_constraintTop_toBottomOf="@id/btnEight"
+        app:layout_constraintStart_toEndOf="@id/btnZero"
+        app:layout_constraintEnd_toStartOf="@id/btnSquare"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </Button>
+
+    <Button
+        android:id="@+id/btnThree"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Three"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginTop="@dimen/btnMarginSize"
+        android:layout_marginBottom="@dimen/btnMarginSize"
+        app:layout_constraintBottom_toTopOf="@id/btnSix"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnTwo"
+        app:layout_constraintVertical_chainStyle="packed">
+    </Button>
+
+    <Button
+        android:id="@+id/btnSix"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Six"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        android:layout_marginBottom="@dimen/btnMarginSize"
+        app:layout_constraintBottom_toTopOf="@id/btnNine"
+        app:layout_constraintTop_toBottomOf="@+id/btnThree"
+        app:layout_constraintStart_toEndOf="@+id/btnFive">
+    </Button>
+
+    <Button
+        android:id="@+id/btnNine"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Nine"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        app:layout_constraintTop_toBottomOf="@id/btnSix"
+        app:layout_constraintStart_toEndOf="@+id/btnEight"
+        app:layout_constraintBottom_toTopOf="@id/btnSquare">
+    </Button>
+
+    <Button
+        android:id="@+id/btnSquare"
+        android:layout_width="@dimen/btnSize"
+        android:layout_height="@dimen/btnSize"
+        android:text="@string/Square"
+        android:textSize="@dimen/btnTextSize"
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="@dimen/btnMarginSize"
+        android:layout_marginEnd="@dimen/btnMarginSize"
+        android:layout_marginStart="@dimen/btnMarginSize"
+        app:layout_constraintTop_toBottomOf="@id/btnNine"
+        app:layout_constraintStart_toEndOf="@+id/btnDot"
         app:layout_constraintBottom_toBottomOf="parent">
     </Button>
 
