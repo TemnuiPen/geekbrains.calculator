@@ -136,12 +136,12 @@
         android:text="@string/Three"
         android:textSize="@dimen/btnTextSize"
         tools:ignore="MissingConstraints"
-        android:layout_marginEnd="@dimen/btnMarginSize"
         android:layout_marginStart="@dimen/btnMarginSize"
         android:layout_marginBottom="@dimen/btnMarginSmallSize"
         app:layout_constraintBottom_toTopOf="@id/btnSix"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnTwo"
+        app:layout_constraintEnd_toStartOf="@id/btnPlus"
         app:layout_constraintVertical_chainStyle="packed">
     </Button>
 
@@ -152,12 +152,11 @@
         android:text="@string/Six"
         android:textSize="@dimen/btnTextSize"
         tools:ignore="MissingConstraints"
-        android:layout_marginEnd="@dimen/btnMarginSize"
-        android:layout_marginStart="@dimen/btnMarginSize"
         android:layout_marginBottom="@dimen/btnMarginSmallSize"
         app:layout_constraintBottom_toTopOf="@id/btnNine"
         app:layout_constraintTop_toBottomOf="@+id/btnThree"
-        app:layout_constraintStart_toEndOf="@+id/btnFive">
+        app:layout_constraintStart_toEndOf="@+id/btnFive"
+        app:layout_constraintEnd_toStartOf="@id/btnMinus">
     </Button>
 
     <Button
@@ -167,11 +166,10 @@
         android:text="@string/Nine"
         android:textSize="@dimen/btnTextSize"
         tools:ignore="MissingConstraints"
-        android:layout_marginEnd="@dimen/btnMarginSize"
-        android:layout_marginStart="@dimen/btnMarginSize"
         app:layout_constraintTop_toBottomOf="@id/btnSix"
         app:layout_constraintStart_toEndOf="@+id/btnEight"
-        app:layout_constraintBottom_toTopOf="@id/btnEquals">
+        app:layout_constraintBottom_toTopOf="@id/btnEquals"
+        app:layout_constraintEnd_toStartOf="@id/btnMultiply">
     </Button>
 
     <Button
@@ -182,11 +180,10 @@
         android:textSize="@dimen/btnTextSize"
         tools:ignore="MissingConstraints"
         android:layout_marginTop="@dimen/btnMarginSmallSize"
-        android:layout_marginEnd="@dimen/btnMarginSize"
-        android:layout_marginStart="@dimen/btnMarginSize"
         app:layout_constraintTop_toBottomOf="@id/btnNine"
         app:layout_constraintStart_toEndOf="@+id/btnDot"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnDevide">
     </Button>
 
     <Button
