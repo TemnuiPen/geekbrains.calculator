@@ -127,73 +127,73 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnOne:
-                counter.setLine("1 ");
-                stringBuffer.append("1 ");
+                counter.setLine("1");
+                stringBuffer.append("1");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnTwo:
-                counter.setLine("2 ");
-                stringBuffer.append("2 ");
+                counter.setLine("2");
+                stringBuffer.append("2");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnThree:
-                counter.setLine("3 ");
-                stringBuffer.append("3 ");
+                counter.setLine("3");
+                stringBuffer.append("3");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnFour:
-                counter.setLine("4 ");
-                stringBuffer.append("4 ");
+                counter.setLine("4");
+                stringBuffer.append("4");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnFive:
-                counter.setLine("5 ");
-                stringBuffer.append("5 ");
+                counter.setLine("5");
+                stringBuffer.append("5");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnSix:
-                counter.setLine("6 ");
-                stringBuffer.append("6 ");
+                counter.setLine("6");
+                stringBuffer.append("6");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnSeven:
-                counter.setLine("7 ");
-                stringBuffer.append("7 ");
+                counter.setLine("7");
+                stringBuffer.append("7");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnEight:
-                counter.setLine("8 ");
-                stringBuffer.append("8 ");
+                counter.setLine("8");
+                stringBuffer.append("8");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnNine:
-                counter.setLine("9 ");
-                stringBuffer.append("9 ");
+                counter.setLine("9");
+                stringBuffer.append("9");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnZero:
-                counter.setLine("0 ");
-                stringBuffer.append("0 ");
+                counter.setLine("0");
+                stringBuffer.append("0");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnPlus:
-                counter.setLine("+ ");
+                counter.setLine(" + ");
                 stringBuffer.append("+ ");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnMinus:
-                counter.setLine("- ");
-                stringBuffer.append("- ");
+                counter.setLine(" - ");
+                stringBuffer.append(" - ");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnMultiply:
-                counter.setLine("* ");
-                stringBuffer.append("* ");
+                counter.setLine(" * ");
+                stringBuffer.append(" * ");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnDivide:
-                counter.setLine("/ ");
-                stringBuffer.append("/ ");
+                counter.setLine(" / ");
+                stringBuffer.append(" / ");
                 textView.setText(stringBuffer);
                 break;
             case R.id.btnDot:
