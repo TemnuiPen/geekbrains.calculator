@@ -16,7 +16,7 @@
         tools:ignore="MissingConstraints"
         android:textSize="@dimen/userTextSize"
         android:textColor="@color/black">
-        
+
     </TextView>
 
     <Button
@@ -196,7 +196,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnNine"
         app:layout_constraintStart_toEndOf="@+id/btnDot"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnDevide">
+        app:layout_constraintEnd_toStartOf="@id/btnDivide">
     </Button>
 
     <Button
@@ -245,7 +245,7 @@
         android:layout_marginStart="@dimen/btnMarginSize"
 
         android:layout_marginBottom="@dimen/btnMarginSmallSize"
-        app:layout_constraintBottom_toTopOf="@id/btnDevide"
+        app:layout_constraintBottom_toTopOf="@id/btnDivide"
         app:layout_constraintTop_toBottomOf="@id/btnMinus"
         app:layout_constraintStart_toEndOf="@+id/btnNine"
         app:layout_constraintEnd_toEndOf="parent"
@@ -253,7 +253,7 @@
     </Button>
 
     <Button
-        android:id="@+id/btnDevide"
+        android:id="@+id/btnDivide"
         android:layout_width="@dimen/btnSize"
         android:layout_height="@dimen/btnSize"
         android:text="@string/Devide"

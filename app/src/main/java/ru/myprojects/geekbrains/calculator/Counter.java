@@ -50,7 +50,7 @@ public class Counter {
                 result = valueOne / valueTwo;
                 break;
         }
-        stringBuffer.delete(0 , stringBuffer.length());
+        stringBuffer.delete(0, stringBuffer.length());
     }
 
 }
