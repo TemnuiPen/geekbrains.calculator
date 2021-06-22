@@ -15,6 +15,8 @@
     <string name="Plus">+</string>
     <string name="Minus">-</string>
     <string name="Multiply">*</string>
-    <string name="Devide">/</string>
+    <string name="Divide">/</string>
     <string name="Equal">=</string>
+    <string name="btnClear">C</string>
+    <string name="Delete">del</string>
 </resources>
