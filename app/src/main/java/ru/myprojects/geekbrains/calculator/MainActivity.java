@@ -31,9 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnDivide;
     Button btnDot;
     Button btnEquals;
+    Button btnClear;
+    Button btnDelete;
     Counter counter;
     TextView textView;
-    StringBuffer stringBuffer;
+    StringBuffer stringBufferTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initView();
         counter = new Counter();
-        stringBuffer = new StringBuffer();
+        stringBufferTV = new StringBuffer();
     }
 
     @Override
@@ -99,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMinus = findViewById(R.id.btnMinus);
         btnMultiply = findViewById(R.id.btnMultiply);
         btnDivide = findViewById(R.id.btnDivide);
+        btnClear = findViewById(R.id.btnClear);
+        btnDelete = findViewById(R.id.btnDelete);
         btnDot = findViewById(R.id.btnDot);
         btnEquals = findViewById(R.id.btnEquals);
         textView = findViewById(R.id.tvText);
@@ -118,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMinus.setOnClickListener(this);
         btnMultiply.setOnClickListener(this);
         btnDivide.setOnClickListener(this);
+        btnClear.setOnClickListener(this);
+        btnDelete.setOnClickListener(this);
         btnDot.setOnClickListener(this);
         btnEquals.setOnClickListener(this);
     }
@@ -128,79 +134,117 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btnOne:
                 counter.setLine("1");
-                stringBuffer.append("1");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("1");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnTwo:
                 counter.setLine("2");
-                stringBuffer.append("2");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("2");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnThree:
                 counter.setLine("3");
-                stringBuffer.append("3");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("3");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnFour:
                 counter.setLine("4");
-                stringBuffer.append("4");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("4");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnFive:
                 counter.setLine("5");
-                stringBuffer.append("5");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("5");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnSix:
                 counter.setLine("6");
-                stringBuffer.append("6");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("6");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnSeven:
                 counter.setLine("7");
-                stringBuffer.append("7");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("7");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnEight:
                 counter.setLine("8");
-                stringBuffer.append("8");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("8");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnNine:
                 counter.setLine("9");
-                stringBuffer.append("9");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("9");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnZero:
                 counter.setLine("0");
-                stringBuffer.append("0");
-                textView.setText(stringBuffer);
+                stringBufferTV.append("0");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnPlus:
                 counter.setLine(" + ");
-                stringBuffer.append("+ ");
-                textView.setText(stringBuffer);
+                stringBufferTV.append(" + ");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnMinus:
                 counter.setLine(" - ");
-                stringBuffer.append(" - ");
-                textView.setText(stringBuffer);
+                stringBufferTV.append(" - ");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnMultiply:
                 counter.setLine(" * ");
-                stringBuffer.append(" * ");
-                textView.setText(stringBuffer);
+                stringBufferTV.append(" * ");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnDivide:
                 counter.setLine(" / ");
-                stringBuffer.append(" / ");
-                textView.setText(stringBuffer);
+                stringBufferTV.append(" / ");
+                textView.setText(stringBufferTV);
                 break;
             case R.id.btnDot:
                 counter.setLine(".");
-                stringBuffer.append(".");
-                textView.setText(stringBuffer);
+                stringBufferTV.append(".");
+                textView.setText(stringBufferTV);
                 break;
+            case R.id.btnClear:
+                textView.setText("");
+                stringBufferTV.delete(0,stringBufferTV.length());
+
+                counter.stringBuffer.delete(0, counter.stringBuffer.length());
+                counter.setResult(0);
+                counter.setValueOne(0);
+                counter.setValueTwo(0);
+                break;
+            case R.id.btnDelete:
+
+                if (stringBufferTV.toString().equals("") &&
+                        counter.stringBuffer.toString().equals("")) {
+                    counter.result = 0;
+                    counter.valueTwo = 0;
+                    counter.valueOne = 0;
+
+                    textView.setText("");
+                    break;
+                }
+                else {
+                    char valueTvBuffer = stringBufferTV.charAt(stringBufferTV.length() - 1);
+                    char valueCounterBuffer = counter.stringBuffer
+                            .charAt(counter.stringBuffer.length() - 1);
+
+                    if (valueTvBuffer == ' ' && valueCounterBuffer == ' ') {
+                        stringBufferTV.setLength(stringBufferTV.length() - 1);
+                        textView.setText(stringBufferTV);
+
+                        counter.stringBuffer.setLength(counter.stringBuffer.length() - 1);
+                    }
+                    stringBufferTV.setLength(stringBufferTV.length() - 1);
+                    textView.setText(stringBufferTV);
+
+                    counter.stringBuffer.setLength(counter.stringBuffer.length() - 1);
+                    break;
+                }
+
             case R.id.btnEquals:
                 counter.parseStr();
 
@@ -208,7 +252,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String str = String.valueOf(counter.getResult());
                 textView.setText(str);
 
-                stringBuffer.delete(0, stringBuffer.length());
+                stringBufferTV.delete(0, stringBufferTV.length());
+
+                counter.stringBuffer.delete(0,counter.stringBuffer.length());
                 counter.setValueOne(0);
                 counter.setValueTwo(0);
                 counter.setResult(0);
