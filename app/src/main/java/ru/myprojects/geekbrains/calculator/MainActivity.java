@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private final int lightThemeValue = R.style.Theme_Geekbrainscalculator;
     private final int darkThemeValue = R.style.Theme_MaterialComponents_DayNight_DarkActionBar;
     private int counterTheme = 1;
+    String toastMistakeMessage = "Incorrect input. Please, try again.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -261,19 +262,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
             case R.id.btnEquals:
-                counter.parseStr();
+                if (stringBufferTV.toString().startsWith("+") ||
+                        stringBufferTV.toString().startsWith("-") ||
+                        stringBufferTV.toString().startsWith("*") ||
+                        stringBufferTV.toString().startsWith("/") ) {
+                    Toast toast = Toast.makeText(this, toastMistakeMessage,
+                            Toast.LENGTH_LONG);
 
-                textView.setText("");
-                String str = String.valueOf(counter.getResult());
-                textView.setText(str);
+                    stringBufferTV.delete(0, stringBufferTV.length());
 
-                stringBufferTV.delete(0, stringBufferTV.length());
+                    counter.stringBuffer.delete(0,counter.stringBuffer.length());
+                    counter.setValueOne(0);
+                    counter.setValueTwo(0);
+                    counter.setResult(0);
+                    break;
+                }
 
-                counter.stringBuffer.delete(0,counter.stringBuffer.length());
-                counter.setValueOne(0);
-                counter.setValueTwo(0);
-                counter.setResult(0);
-                break;
+                else {
+                    counter.parseStr();
+
+                    textView.setText("");
+                    String str = String.valueOf(counter.getResult());
+                    textView.setText(str);
+
+                    stringBufferTV.delete(0, stringBufferTV.length());
+
+                    counter.stringBuffer.delete(0,counter.stringBuffer.length());
+                    counter.setValueOne(0);
+                    counter.setValueTwo(0);
+                    counter.setResult(0);
+                    break;
+                }
+
 
             case R.id.btnSwitchDayNightTheme:
                 setAppTheme();

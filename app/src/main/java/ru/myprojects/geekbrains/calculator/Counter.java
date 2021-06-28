@@ -1,11 +1,13 @@
 package ru.myprojects.geekbrains.calculator;
 
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Counter {
     double valueOne;
     double valueTwo;
     double result;
+
 
     StringBuffer stringBuffer = new StringBuffer();
 
@@ -32,9 +34,14 @@ public class Counter {
 
     void parseStr () {
         String line = stringBuffer.toString();
-        String[] arrSplit = line.split("\\s",3);
+
+
+            String[] arrSplit = line.split("\\s",3);
         valueOne = Double.parseDouble(arrSplit[0]);
         valueTwo = Double.parseDouble(arrSplit[2]);
+
+
+
 
         switch (arrSplit[1]) {
             case "+":
