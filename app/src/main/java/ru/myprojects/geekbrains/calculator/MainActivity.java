@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -33,17 +36,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnEquals;
     Button btnClear;
     Button btnDelete;
+    Button btnChangeTheme;
+
     Counter counter;
     TextView textView;
     StringBuffer stringBufferTV;
+
+    private final Context CONTEXT = this;
+
+    private final int lightThemeValue = R.style.Theme_Geekbrainscalculator;
+    private final int darkThemeValue = R.style.Theme_MaterialComponents_DayNight_DarkActionBar;
+    private int counterTheme = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        setTheme(R.style.Theme_Geekbrainscalculator);
         counter = new Counter();
         stringBufferTV = new StringBuffer();
+
     }
 
     @Override
@@ -104,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnClear = findViewById(R.id.btnClear);
         btnDelete = findViewById(R.id.btnDelete);
         btnDot = findViewById(R.id.btnDot);
+        btnChangeTheme = findViewById(R.id.btnSwitchDayNightTheme);
         btnEquals = findViewById(R.id.btnEquals);
         textView = findViewById(R.id.tvText);
 
@@ -126,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDelete.setOnClickListener(this);
         btnDot.setOnClickListener(this);
         btnEquals.setOnClickListener(this);
+        btnChangeTheme.setOnClickListener(this);
     }
 
     @SuppressLint({"ShowToast", "NonConstantResourceId"})
@@ -259,6 +274,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 counter.setValueTwo(0);
                 counter.setResult(0);
                 break;
+
+            case R.id.btnSwitchDayNightTheme:
+                setAppTheme();
+                recreate();
+        }
+    }
+
+    private void setAppTheme() {
+        if(counterTheme == 1) {
+            setTheme(darkThemeValue);
+            counterTheme = 0;
+        }
+        else if(counterTheme == 0) {
+            setTheme(lightThemeValue);
+            counterTheme = 1;
         }
     }
 }

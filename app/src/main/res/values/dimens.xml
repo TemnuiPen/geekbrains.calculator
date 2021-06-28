@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="btnTextSize">32sp</dimen>
-    <dimen name="userTextSize">64sp</dimen>
+    <dimen name="btnTextSize">24sp</dimen>
+    <dimen name="userTextSize">32sp</dimen>
 
     <dimen name="btnSize">72dp</dimen>
     <dimen name="btnMarginLargeSize">56dp</dimen>
@@ -9,4 +9,5 @@
     <dimen name="btnMarginSize">16dp</dimen>
     <dimen name="btnMarginSmallSize">8dp</dimen>
     <dimen name="btnZeroSize">192dp</dimen>
+    <dimen name="btn_corner_size">4dp</dimen>
 </resources>
