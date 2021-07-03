@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Counter counter;
     TextView textView;
     StringBuffer stringBufferTV;
+    String keyCounter = "key";
 
     private final Context CONTEXT = this;
 
@@ -68,6 +69,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        counter = (Counter) savedInstanceState.getParcelable(keyCounter);
+        restoreText();
+    }
+
+    private void restoreText() {
+        if (textView.getText().equals("")){
+            textView.setText(String.valueOf(counter.result));
+        }
+        else {
+            textView.setText(counter.stringBuffer);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(keyCounter,counter);
     }
 
     @Override
@@ -78,11 +96,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
     }
 
     @Override
@@ -279,6 +292,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 else {
+                    counter.setValueOne(0);
+                    counter.setValueTwo(0);
+                    counter.setResult(0);
+
                     counter.parseStr();
 
                     textView.setText("");
@@ -288,9 +305,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     stringBufferTV.delete(0, stringBufferTV.length());
 
                     counter.stringBuffer.delete(0,counter.stringBuffer.length());
-                    counter.setValueOne(0);
-                    counter.setValueTwo(0);
-                    counter.setResult(0);
                     break;
                 }
 
