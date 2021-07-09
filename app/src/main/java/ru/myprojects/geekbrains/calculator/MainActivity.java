@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     StringBuffer stringBufferTV;
     String keyCounter = "key";
 
+    private final static String TEXT = "PARAM";
+
     private final Context CONTEXT = this;
 
     private final int lightThemeValue = R.style.Theme_Geekbrainscalculator;
@@ -53,12 +56,68 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_Geekbrainscalculator);
         setContentView(R.layout.activity_main);
         initView();
-        setTheme(R.style.Theme_Geekbrainscalculator);
         counter = new Counter();
         stringBufferTV = new StringBuffer();
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if (bundle == null) {
+            return;
+        }
+        else {
+            String intentStr = bundle.getString(TEXT);
+            String intentLine = checkIntentInput(intentStr);
+            if (stringBufferTV.length() == 0 && counter.stringBuffer.length() == 0) {
+                stringBufferTV.append(intentLine);
+                counter.stringBuffer.append(intentLine);
+                textView.setText(intentLine);
+            }
+            else {
+                cleanStringBuffer();
+                cleanVariables();
+            }
+        }
+    }
+
+    private void cleanVariables() {
+        counter.result = 0;
+        counter.valueTwo = 0;
+        counter.valueOne = 0;
+    }
+
+    private void cleanStringBuffer() {
+        stringBufferTV.delete(0, stringBufferTV.length());
+        counter.stringBuffer.delete(0,counter.stringBuffer.length());
+    }
+
+    private String checkIntentInput(String line) {
+        char[] lineChar = line.toCharArray();
+        StringBuilder stringBuilderF = new StringBuilder();
+        for(int i = 0; i < line.length(); i++) {
+            for (int j = 0; j < 9; j++) {
+                if (lineChar[i] == j) {
+                    stringBuilderF.append(lineChar[i]);
+                }
+            }
+            switch (lineChar[i]) {
+                case '+':
+                    stringBuilderF.append(lineChar[i]);
+                case '-':
+                    stringBuilderF.append(lineChar[i]);
+                case '*':
+                    stringBuilderF.append(lineChar[i]);
+                case '/':
+                    stringBuilderF.append(lineChar[i]);
+                case '.':
+                    stringBuilderF.append(lineChar[i]);
+                case ' ':
+                    stringBuilderF.append(lineChar[i]);
+            }
+        }
+        return (stringBuilderF.toString());
     }
 
     @Override
@@ -249,9 +308,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 if (stringBufferTV.toString().equals("") &&
                         counter.stringBuffer.toString().equals("")) {
-                    counter.result = 0;
-                    counter.valueTwo = 0;
-                    counter.valueOne = 0;
+                    cleanVariables();
 
                     textView.setText("");
                     break;
@@ -282,19 +339,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast toast = Toast.makeText(this, toastMistakeMessage,
                             Toast.LENGTH_LONG);
 
-                    stringBufferTV.delete(0, stringBufferTV.length());
-
-                    counter.stringBuffer.delete(0,counter.stringBuffer.length());
-                    counter.setValueOne(0);
-                    counter.setValueTwo(0);
-                    counter.setResult(0);
+                    cleanStringBuffer();
+                    cleanVariables();
                     break;
                 }
 
                 else {
-                    counter.setValueOne(0);
-                    counter.setValueTwo(0);
-                    counter.setResult(0);
+                    cleanVariables();
 
                     counter.parseStr();
 
@@ -302,9 +353,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String str = String.valueOf(counter.getResult());
                     textView.setText(str);
 
-                    stringBufferTV.delete(0, stringBufferTV.length());
-
-                    counter.stringBuffer.delete(0,counter.stringBuffer.length());
+                    cleanStringBuffer();
                     break;
                 }
 
