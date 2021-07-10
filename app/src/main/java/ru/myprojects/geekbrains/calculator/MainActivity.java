@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textView;
     StringBuffer stringBufferTV;
     String keyCounter = "key";
-
-    private final static String TEXT = "PARAM";
-
     private final Context CONTEXT = this;
 
     String toastMistakeMessage = "Incorrect input. Please, try again.";
@@ -259,6 +256,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         counter.stringBuffer.toString().equals("")) {
                     cleanVariables();
 
+                    Toast toast = Toast.makeText(CONTEXT,toastMistakeMessage,Toast.LENGTH_LONG);
+                    toast.show();
                     textView.setText("");
                     break;
                 }
@@ -281,14 +280,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
             case R.id.btnEquals:
-                if (stringBufferTV.toString().startsWith("+") ||
-                        stringBufferTV.toString().startsWith("-") ||
-                        stringBufferTV.toString().startsWith("*") ||
-                        stringBufferTV.toString().startsWith("/") ) {
+                if (stringBufferTV.toString().startsWith(" ")) {
                     Toast toast = Toast.makeText(this, toastMistakeMessage,
                             Toast.LENGTH_LONG);
+                    toast.show();
 
                     cleanStringBuffer();
+                    textView.setText("");
+                    cleanVariables();
+                    break;
+                }
+                else if (stringBufferTV.toString().equals("")) {
+                    Toast toast = Toast.makeText(this, toastMistakeMessage,
+                            Toast.LENGTH_LONG);
+                    toast.show();
+                    break;
+                }
+
+                else if (stringBufferTV.toString().startsWith(".")) {
+                    Toast toast = Toast.makeText(this, toastMistakeMessage,
+                            Toast.LENGTH_LONG);
+                    toast.show();
+
+                    cleanStringBuffer();
+                    textView.setText("");
                     cleanVariables();
                     break;
                 }
