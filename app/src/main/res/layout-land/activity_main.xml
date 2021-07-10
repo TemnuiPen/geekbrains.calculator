@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/picture"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@color/grey_light">
 
     <TextView
         android:id="@+id/tvText"
@@ -288,27 +288,5 @@
         app:layout_constraintTop_toBottomOf="@id/btnClear"
         app:layout_constraintStart_toEndOf="@+id/btnMinus">
     </com.google.android.material.button.MaterialButton>
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/btnMarginSize"
-        app:layout_constraintStart_toEndOf="@+id/btnDivide"
-        app:layout_constraintTop_toBottomOf="@+id/btnDelete"
-        app:layout_constraintBottom_toBottomOf="parent">
-        <RadioButton
-            android:id="@+id/btnSwitchDayNightTheme"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/day_night"
-            android:textSize="@dimen/btnTextSize"
-            android:textColor="@color/white"
-            android:background="@drawable/btn_day_night"
-            app:layout_constraintStart_toEndOf="@+id/btnDivide"
-            app:layout_constraintTop_toBottomOf="@+id/btnDelete"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-        </RadioButton>
-    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

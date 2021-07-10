@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnEquals;
     Button btnClear;
     Button btnDelete;
-    Button btnChangeTheme;
 
     Counter counter;
     TextView textView;
@@ -48,9 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private final Context CONTEXT = this;
 
-    private final int lightThemeValue = R.style.Theme_Geekbrainscalculator;
-    private final int darkThemeValue = R.style.Theme_MaterialComponents_DayNight_DarkActionBar;
-    private int counterTheme = 1;
     String toastMistakeMessage = "Incorrect input. Please, try again.";
 
     @Override
@@ -62,24 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         counter = new Counter();
         stringBufferTV = new StringBuffer();
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if (bundle == null) {
-            return;
-        }
-        else {
-            String intentStr = bundle.getString(TEXT);
-            String intentLine = checkIntentInput(intentStr);
-            if (stringBufferTV.length() == 0 && counter.stringBuffer.length() == 0) {
-                stringBufferTV.append(intentLine);
-                counter.stringBuffer.append(intentLine);
-                textView.setText(intentLine);
-            }
-            else {
-                cleanStringBuffer();
-                cleanVariables();
-            }
-        }
     }
 
     private void cleanVariables() {
@@ -91,33 +69,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void cleanStringBuffer() {
         stringBufferTV.delete(0, stringBufferTV.length());
         counter.stringBuffer.delete(0,counter.stringBuffer.length());
-    }
-
-    private String checkIntentInput(String line) {
-        char[] lineChar = line.toCharArray();
-        StringBuilder stringBuilderF = new StringBuilder();
-        for(int i = 0; i < line.length(); i++) {
-            for (int j = 0; j < 9; j++) {
-                if (lineChar[i] == j) {
-                    stringBuilderF.append(lineChar[i]);
-                }
-            }
-            switch (lineChar[i]) {
-                case '+':
-                    stringBuilderF.append(lineChar[i]);
-                case '-':
-                    stringBuilderF.append(lineChar[i]);
-                case '*':
-                    stringBuilderF.append(lineChar[i]);
-                case '/':
-                    stringBuilderF.append(lineChar[i]);
-                case '.':
-                    stringBuilderF.append(lineChar[i]);
-                case ' ':
-                    stringBuilderF.append(lineChar[i]);
-            }
-        }
-        return (stringBuilderF.toString());
     }
 
     @Override
@@ -190,7 +141,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnClear = findViewById(R.id.btnClear);
         btnDelete = findViewById(R.id.btnDelete);
         btnDot = findViewById(R.id.btnDot);
-        btnChangeTheme = findViewById(R.id.btnSwitchDayNightTheme);
         btnEquals = findViewById(R.id.btnEquals);
         textView = findViewById(R.id.tvText);
 
@@ -213,7 +163,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDelete.setOnClickListener(this);
         btnDot.setOnClickListener(this);
         btnEquals.setOnClickListener(this);
-        btnChangeTheme.setOnClickListener(this);
     }
 
     @SuppressLint({"ShowToast", "NonConstantResourceId"})
@@ -356,22 +305,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     cleanStringBuffer();
                     break;
                 }
-
-
-            case R.id.btnSwitchDayNightTheme:
-                setAppTheme();
-                recreate();
-        }
-    }
-
-    private void setAppTheme() {
-        if(counterTheme == 1) {
-            setTheme(darkThemeValue);
-            counterTheme = 0;
-        }
-        else if(counterTheme == 0) {
-            setTheme(lightThemeValue);
-            counterTheme = 1;
         }
     }
 }
